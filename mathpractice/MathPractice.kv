@@ -1,0 +1,135 @@
+
+
+
+
+MDBoxLayout:
+    orientation: 'vertical'
+    spacing: 10
+    
+    MDTopAppBar:
+        title: 'Math Practice'
+        right_action_items:[["plus-box", lambda x: app.start_game('plus')], ["multiplication-box", lambda x: app.start_game('multiply')]]
+
+
+    MDBoxLayout:        #   Question and Answer Labels
+
+        MDLabel:
+            id: question
+            markup: True
+            text:''
+            halign: 'center'
+            font_size: self.width/8
+        
+        MDLabel:
+            id: answer
+            text:''
+            halign: 'center'
+            font_size: self.width/8
+
+    MDCard:             #   Card with Feedback label
+        size_hint: 0.5, 0.15
+        id: feedbackCard
+        elevation: 1
+        radius: [dp(10), dp(10), dp(10), dp(10)]
+        md_bg_color: (64/255, 224/255, 208/255, 0.7) #Red color - 250,190,193
+        pos_hint: {"center_x": .5, "center_y": .5}
+
+        MDLabel:
+            id: feedback
+            markup: True
+            text: '...'
+            halign: 'center'
+            font_size: self.width/10
+
+    
+    MDGridLayout:       #   Buttons
+        cols: 3
+        spacing: 4
+        
+
+        MDRectangleFlatButton:
+            text: "1"
+            size_hint: 0.1, 0.1
+            id: button1
+            on_press: app.button_press(1)
+        
+        MDRectangleFlatButton:
+            text: "2"
+            size_hint: 0.1, 0.1
+            id: button2
+            on_press: app.button_press(2)
+
+        MDRectangleFlatButton:
+            text: "3"
+            size_hint: 0.1, 0.1
+            id: button3
+            on_press: app.button_press(3)
+        
+        MDRectangleFlatButton:
+            text: "4"
+            size_hint: 0.1, 0.1
+            id: button4
+            on_press: app.button_press(4)
+
+        MDRectangleFlatButton:
+            text: "5"
+            size_hint: 0.1, 0.1
+            id: button5
+            on_press: app.button_press(5)
+        
+        MDRectangleFlatButton:
+            text: "6"
+            size_hint: 0.1, 0.1
+            id: button6
+            on_press: app.button_press(6)
+
+        MDRectangleFlatButton:
+            text: "7"
+            size_hint: 0.1, 0.1
+            id: button7
+            on_press: app.button_press(7)
+        
+        MDRectangleFlatButton:
+            text: "8"
+            size_hint: 0.1, 0.1
+            id: button8
+            on_press: app.button_press(8)
+
+        MDRectangleFlatButton:
+            text: "9"
+            size_hint: 0.1, 0.1
+            id: button9
+            on_press: app.button_press(9)
+        
+        MDRectangleFlatButton:
+            text: "Clear"
+            size_hint: 0.1, 0.1
+            id: buttonNew
+            on_press: app.button_clear()
+
+        MDRectangleFlatButton:
+            text: "0"
+            size_hint: 0.1, 0.1
+            id: button0
+            on_press: app.button_press(0)
+        
+        MDRectangleFlatButton:
+            text: "Enter"
+            size_hint: 0.1, 0.1
+            id: buttonExtra
+            on_press: app.button_answer()
+
+    MDLabel:
+        text: ''
+        size_hint: 1, 0.05
+
+
+    
+#...
+#...    
+
+
+
+
+    
+    

@@ -1,0 +1,73 @@
+Screen:
+    MDNavigationLayout:
+        ScreenManager:
+            Screen:
+
+                BoxLayout:
+                    orientation: 'vertical'
+                    spacing: 30
+
+                    MDTopAppBar:
+                        title: 'Math Practice'
+                        right_action_items: [["menu", lambda x: nav.set_state('toggle')]]
+
+                        MDLabel:
+                            id: feedback
+                            halign: 'center'
+                            text: "Starta en ny från meny'n ..."
+                            color: 'white'
+
+                    MDCard:
+                        size_hint: 0.7, 0.2
+                        pos_hint: {'center_x': 0.5,'center_y': 1}
+                        elevation: 2
+
+                        MDBoxLayout:
+                            orientation: 'vertical'
+
+                            MDLabel:
+                                text: '5 * 5'
+                                halign: 'center'
+
+                            MDTextField:
+                                id: input_text
+                                hint_text: '...' #This will be the question
+                                max_text_length: 3
+                                multiline: False
+                                font_size: 20
+                                pos_hint: {'center_x': 0.5,'center_y': 0.5}
+                                size_hint_x: 0.5
+                                on_text_validate: app.answerCalc()
+
+                    Widget:
+                        size_hint: 1, 1
+
+
+        
+        MDNavigationDrawer:
+            id: nav
+            anchor: 'right'
+
+            MDNavigationDrawerMenu:
+
+                MDNavigationDrawerHeader:
+                    title: "Header title"
+                    text: "Header text"
+                    spacing: "4dp"
+                    padding: "12dp", 0, 0, "56dp"
+
+                MDRectangleFlatButton:
+                    text: 'plus'
+                    on_release: 
+                        app.start_game('plus')
+                        nav.set_state('close')
+                        input_text.focus: True
+
+                MDRectangleFlatButton:
+                    text: 'multiply'
+                    on_release: 
+                        app.start_game('multiply')
+                        nav.set_state('close')
+                        input_text.focus: True
+
+                
